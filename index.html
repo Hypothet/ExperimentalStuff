@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="Tile.js" type="module"></script>
+<script src="app.js" type="module"></script>
+<script src="Colony.js" type="module"></script>
+<script src="./TileOverlay.js" type="module"></script>
+
+
+
+
+<link rel="stylesheet" href="/style/style.css">
+<head>
+    <link rel="icon" href="img/favicon.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColonySim.io</title>
+</head>
+<body oncontextmenu="return false">
+
+    <div class="above_canvas">
+        <h1 id="title">ColonySim.io</h1>
+        <p1 id="socialTexts">For updates and suggestions: @.Belfont on TikTok and @Belfont on YouTube</p1>
+    </div>
+    
+     
+
+    <div class="canvas_row">
+        <div class="overlay_canvas_container">
+
+
+            <div id="tile_overlay" class="canvas_overlay">
+                <div class="tile_overlay_group"id="tile_overlay_for_occupied_land">
+                    <h1 id="tile_overlay_colony_name" style="text-align: center; color: white;"></h1>
+
+                    <h2>About:</h2>
+                    <br>
+                    <p class="tile_overlay_text" id="tile_overlay_pop_text"></p>
+                    <p class="tile_overlay_text" id="tile_overlay_colony_control_text"></p>
+                    <p class="tile_overlay_text" id="tile_overlay_troop_text"></p>
+                    <p class="tile_overlay_text" id="tile_overlay_attack_and_defense_text"></p>
+
+
+                </div>
+
+                <div class="tile_overlay_group" id="tile_overlay_for_occupied_water">
+                    <h1 id="tile_overlay_occupied_water_colony_name" style="text-align: center; color: white;"></h1>
+
+                    <h2>About:</h2>
+                    <br>
+                    <p class="tile_overlay_text" id="tile_overlay_occupied_water_pop_text"></p>
+                    <p class="tile_overlay_text" id="tile_overlay_occupied_water_troop_text"></p>
+                    <p class="tile_overlay_text" id="tile_overlay_occupied_water_strength_and_health_text"></p>
+                </div>
+
+                <div class="tile_overlay_group" id="tile_overlay_for_empty_land">
+                    <h1 style="text-align: center; color: white;" id="tile_overlay_terrain_name"></h1>
+                    <br>
+                    <p class="tile_overlay_text" id="tile_overlay_empty_land_pop_text"></p>
+                    <p class="tile_overlay_text" id="tile_overlay_empty_land_troop_text"></p>
+
+                </div>
+
+                <div class="tile_overlay_group" id="tile_overlay_for_empty_water">
+                    <h1 style="text-align: center; color: white;" id="tile_overlay_empty_water_header"></h1>
+                    <p class="tile_overlay_text" id="tile_overlay_empty_water_pop_text"></p>
+                </div>
+
+               
+                <button class="canvas_overlay_close_btn" id="tile_overlay_close_btn">Close</button>
+            </div>
+
+
+            <canvas id="canvas" width="1000" height="700" style="border:1px solid #d3d3d3;">
+                Your browser does not support the HTML5 canvas tag.</canvas>
+        </div>
+    </div>
+    <div class="below_canvas">
+        <button id="play_pause_btn">Play</button>
+
+        <div class="label_group">
+            <label class="labels" for="speed_slider">Game Speed: </label>
+            <input type="range" min="1" name="speed_slider" max="255" value="245" id="speed_slider">
+            <!-- <button id="save_map_btn">Save Map</button> -->
+
+        </div>
+        <button id="view_upcoming_updates">View upcoming updates</button>
+        <a  href='https://www.reddit.com/r/ColonySim_io/comments/tvpza6/creating_custom_colonies/' target="_blank"><button id="skinny_info_btn" >Custom Colony Tutorial</button></a>
+        <a  href='https://www.reddit.com/r/ColonySim_io/comments/tvom5s/uploading_a_custom_map_tutorial/' target="_blank"><button id="skinny_info_btn" > Upload Maps Tutorial</button></a>
+        <a  href='https://discord.gg/nus74b5YdD' target="_blank"><button id="skinny_info_btn" > Discord/Maps</button></a>
+
+
+
+
+        <div class="game_setup_inputs">
+            <input type="file" id="main_image_input">
+            <!-- <input id="map_import_input" type="file" accept="application/txt"/> -->
+
+            <div class="game_setup_group border_group">
+                <label class="labels" for="size_input">Tile Size</label>
+                <input class="number_input" type='number'value="3" name="size_input" id="size_input" min="1" max="99">
+
+                <button id="display_map_btn">Convert Map</button>
+            </div>
+
+            <div class="game_setup_group border_group">
+                <label class="labels" for="random_colonies_input">Random Colonies: </label>
+                <input class="number_input" type='number' value="2" name="random_colonies_input" min="1" max="100" id="random_colonies_input" >
+                <button id="create_random_colonies">Create Random Colonies</button>
+            </div>
+        </div>
+
+
+        <div class="map_mode_buttons">
+            <button id="display_political_map_btn">Political Map</button>
+            <button id="display_geo_map_btn">Geo Map</button>
+            <button id="display_pop_map_btn">Pop Map</button>
+            <button id="display_attack_map_btn">Attack Map</button>
+            <button id="display_defense_map_btn">Defense Map</button>
+            <button id="display_troop_map_btn">Troop Map</button>
+            <!-- <button id="display_growth_map_btn">Growth Map</button> -->
+            <button id="display_frontline_map_btn">Frontline Map</button>
+
+        </div>
+
+        
+        <div id="upcoming_updates_overlay">
+            <div id="update_overlay_text">
+                <h1>Upcoming Updates:</h1>
+                <br>
+                <ul>
+                    <li>Saving and sharing custom simulations</li>
+                    <li>Adding Supplies (also tweaking troops)</li>
+                    <li>Realistic populations (starting and population growth)</li>
+                    <li>Colonial overlay, where you can view and edit each colony's stats</li>
+                    <li>Colonial Ideologies and creating alliances</li>
+                    <li>Improved map editing tools</li>
+                    <li>Simple Economic system (including resources)</li>
+                </ul>
+
+                <p>Click anywhere to close</p>
+            </div>
+
+        </div>
+
+
+        <div id="select_colony_overlay">
+            <div id="overlay_buttons">
+            </div>
+        </div>
+
+
+
+        <div class="create_custom_colony_group">
+            <hr>
+
+            <input class="text_input" type='text' placeholder="Name" id="custom_colony_name_input" >
+            <input type='color' id="custom_colony_color_input" >
+            <input class="number_input" type='number'  placeholder="Capital Population" min="1"  id="custom_colony_capital_population_input" >
+            <input class="number_input" type='number'  placeholder="Strength" min="1"  id="custom_colony_strength_input">
+            <input class="number_input" type='number'  placeholder="Troops" min="1"  id="custom_colony_troops_input">
+
+            <!-- <input class="number_input" type='number'  placeholder="Attack" min="1"  id="custom_colony_attack_input" >
+            <input class="number_input" type='number'  placeholder="Defense" min="1"  id="custom_colony_defense_input" > -->
+            <button id="custom_colony_place_colony_btn">Place Capital</button>
+            <button id="custom_colony_draw_colony_btn">Draw Borders</button>
+        </div>
+
+
+        <button id="select_tile_btn">Select Tile</button>
+
+        <div class="terrain_edit_buttons">
+            <div class="label_group">
+                <label class="labels"  for="brush_size">Brush Size: </label>
+                <input  type="range" min="1" name="brush_size" max="20" value="2" id="brush_size_slider">
+            </div> 
+            <br>
+
+            <button id="main_terrain_edit_btn">Edit Terrain</button>
+            <div class = "hidden_terrain_buttons">
+                <button id="plains_terrain_edit_btn">Add Plains</button>
+                <button id="mountains_terrain_edit_btn">Add Mountains</button>
+                <button id="forests_terrain_edit_btn">Add Forests</button>
+                <button id="rivers_terrain_edit_btn">Add Rivers</button>
+                <button id="oceans_terrain_edit_btn">Add Oceans</button>
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="stat_holder">
+
+
+        </div>
+
+        <button id="print_game_board" style="margin-top:10px">Print Board</button>
+    </div>
+
+
+
+</body>
+</html>
