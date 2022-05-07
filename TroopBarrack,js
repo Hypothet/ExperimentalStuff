@@ -1,0 +1,43 @@
+export default class TroopBarrack{
+
+
+    constructor(){
+
+    }
+
+    trainingTime =     Math.floor(Math.random() * (40 - 20) + 20); // slightly random training time
+    currentTraining = 0;
+    
+
+
+    trainTroops(thisPop){
+        this.currentTraining += 1 * thisPop.colonyControl;
+        if (this.currentTraining > this.trainingTime && thisPop.getManpower()/3 > 1){
+                // thisPop.createNewTroop(Math.floor(thisPop.colony.manPower * .01)); //TODO dynamic amounts based on pop
+                thisPop.createNewTroop(thisPop.getManpower()/3); //TODO dynamic amounts based on pop
+                this.currentTraining-=this.trainingTime;
+        }
+    }
+
+    sendManpowerToColony(thisPop){
+        const recRate = .001;
+
+        if ( thisPop.pop - (recRate * thisPop.pop * thisPop.colonyControl) >= 1){
+       
+            thisPop.colony.manPower += Math.floor(recRate * thisPop.pop * thisPop.colonyControl);
+            thisPop.pop -= Math.floor(recRate * thisPop.pop * thisPop.colonyControl);
+            
+        }
+    }
+
+    recruitManpower(thisPop){
+        const recRate = .001;
+
+        if ( thisPop.pop - (recRate * thisPop.pop * thisPop.colonyControl) >= 1){
+            this.manPower += Math.floor(recRate * thisPop.pop * thisPop.colonyControl);
+
+            //thisPop.pop -= Math.floor(recRate * thisPop.pop * thisPop.colonyControl);
+            
+        }
+    }
+}
