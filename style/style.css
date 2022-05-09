@@ -1,0 +1,320 @@
+body{
+    background-color: rgb(58, 58, 78);
+}
+
+.canvas_row{
+    background-color: #d6d6d6;
+    position: relative;
+}
+
+
+#tile_overlay{
+
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.678);
+    z-index: 3;
+    cursor: pointer;
+}
+
+.tile_overlay_text{
+    margin-left: 10%;
+}
+
+#tile_overlay_for_occupied_land{
+
+}
+
+#tile_overlay_for_empty_land{
+    
+}
+
+.tile_overlay_group{
+    font-size: 15px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.canvas_overlay_close_btn{
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+}
+.canvas_overlay button{
+    padding: 12px 16px;
+    border: 0;
+    text-decoration: none;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.829);
+
+    border: 1px solid rgb(161, 160, 160);
+    backdrop-filter: blur(30px);
+    color: rgba(255,255,255,0.8);
+    font-size: 16px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.tile_overlay_population{
+    color: white;
+}
+
+
+.above_canvas{
+    font-family: Arial, Helvetica, sans-serif;
+    height: 10%;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+
+}
+
+.below_canvas{
+    background-color: #63616d;
+    margin: 10px 10% 0% 10%;
+    border-radius: 1%;
+    padding: 10px 10px 10px 10px;
+}
+
+
+#title{
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+#socialTexts{
+    font-size: 10px;
+}
+
+
+.below_canvas button{
+    padding: 12px 16px;
+    border: 0;
+    text-decoration: none;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.829);
+
+    border: 1px solid rgb(161, 160, 160);
+    backdrop-filter: blur(30px);
+    color: rgba(255,255,255,0.8);
+    font-size: 16px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+
+.below_canvas button:hover{
+    background-color: rgba(255,255,255,0.1);
+}
+
+#main_image_input{
+
+}
+
+#canvas{
+    position: relative;
+    padding: 0;
+    margin: auto;
+    display: block;
+    background-color: white;
+
+
+    border: 5px solid rgb(11, 11, 82);
+}
+
+
+#display_map_btn{
+
+}
+
+.labels{
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family:Arial, Helvetica, sans-serif
+}
+
+.game_setup_group{
+    display: inline-block;
+    padding: 0px 10px 0px 10px;
+}
+
+.border_group{
+    border: 1px solid rgb(161, 160, 160);
+}
+#change_map_mode_btn{
+
+}
+
+#play_pause_btn{
+    border: 1px solid rgba(105, 105, 105);
+    background-color: #6E9E5F;
+
+}
+
+#create_random_colonies{
+
+}
+
+.number_input {
+    text-decoration: none;
+
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.753);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.text_input{
+    text-decoration: none;
+
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.753);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+.map_mode_buttons{
+    margin-top: 10px;
+}
+
+.map_mode_buttons button{
+
+}
+
+.map_mode_buttons button:hover {
+    background-color: rgba(255,255,255,0.1);
+
+}
+
+.terrain_edit_buttons {
+    margin-top: 10px;
+}
+.terrain_edit_buttons button{
+    margin-top: 10px;
+}
+
+#main_terrain_edit_btn{
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.829);
+}
+
+#plains_terrain_edit_btn{
+    background-color: #64aa49;
+}
+#mountains_terrain_edit_btn{
+    background-color: #474747;
+
+}
+
+#forests_terrain_edit_btn{
+    background-color: #2e3f29;
+
+}
+
+#rivers_terrain_edit_btn{
+    background-color: #5c8c9c;
+
+}
+
+#oceans_terrain_edit_btn{
+    background-color: #4A9DEE;
+
+}
+
+.create_custom_colony_group{
+    margin-top: 10px;
+}
+
+.label_group{
+    display: inline-block;
+    border: 1px solid rgb(161, 160, 160);
+    padding: 2px 10px 2px 10px;
+    border-radius: 2px;
+}
+
+#stat_holder{
+    margin-top: 10px;
+    background-color: #fffffff1;
+    border-radius: 6px;
+    padding: 5px 5px 5px 5px;
+    border: 1px;
+}
+
+#select_colony_overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#overlay_buttons{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#view_upcoming_updates{
+    font-size: 10px;
+    padding: 5px 5px 5px 5px;
+    margin-left: 15px;
+}
+
+#upcoming_updates_overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.678);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#update_overlay_text {
+    margin-top: 10%;
+    color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#update_overlay_text h1,
+#update_overlay_text p{
+   text-align: center;
+}
+
+#update_overlay_text ul {
+    display: table;
+    margin: 0 auto;
+  }
+
+#skinny_info_btn{
+    font-size: 10px;
+    padding: 5px 5px 5px 5px;
+    margin-left: 15px;
+    
+}
+  
+
